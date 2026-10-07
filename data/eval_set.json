@@ -1,0 +1,82 @@
+[
+  {
+    "question": "年假有多少天？",
+    "must_contain": ["年假", "5 天"],
+    "type": "answerable",
+    "note": "示例题。正式使用时换成你自己语料的问题，建议扩到 50 条。"
+  },
+  {
+    "question": "年假需要提前多久申请？",
+    "must_contain": ["年假", "3 个工作日"],
+    "type": "answerable"
+  },
+  {
+    "question": "病假期间工资怎么发？",
+    "must_contain": ["病假", "80%"],
+    "type": "answerable"
+  },
+  {
+    "question": "事假一年最多能请几天？",
+    "must_contain": ["事假", "15 天"],
+    "type": "answerable"
+  },
+  {
+    "question": "陪产假有多少天？",
+    "must_contain": ["陪产假", "15 天"],
+    "type": "answerable"
+  },
+  {
+    "question": "差旅报销要在多久之内提交？",
+    "must_contain": ["报销", "15 个工作日"],
+    "type": "answerable"
+  },
+  {
+    "question": "多大金额的报销需要二级部门负责人审批？",
+    "must_contain": ["5000 元", "二级部门负责人"],
+    "type": "answerable"
+  },
+  {
+    "question": "出差住宿标准是多少？",
+    "must_contain": ["住宿标准", "500 元"],
+    "type": "answerable"
+  },
+  {
+    "question": "测试覆盖率有什么要求？",
+    "must_contain": ["测试覆盖率", "70%"],
+    "type": "answerable"
+  },
+  {
+    "question": "上线为什么要先发一部分流量？",
+    "must_contain": ["灰度", "10%"],
+    "type": "answerable"
+  },
+  {
+    "question": "账号密码多久需要更换一次？",
+    "must_contain": ["密码", "90 天"],
+    "type": "answerable"
+  },
+  {
+    "question": "远程办公一周最多几天？",
+    "must_contain": ["远程办公", "2 天"],
+    "type": "answerable"
+  },
+  {
+    "question": "每月迟到几次可以豁免？",
+    "must_contain": ["迟到", "3 次"],
+    "type": "answerable"
+  },
+  {
+    "question": "公司的股票代码是多少？",
+    "type": "unanswerable",
+    "note": "知识库里没有，正确行为是拒答而不是编一个"
+  },
+  {
+    "question": "今年的年会在哪里举办？",
+    "type": "unanswerable"
+  },
+  {
+    "question": "产假的具体天数是多少？",
+    "type": "unanswerable",
+    "note": "文档只写了「按国家规定执行」，没有具体数字，属于易被编造的类型"
+  }
+]

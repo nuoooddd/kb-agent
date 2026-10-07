@@ -1,0 +1,39 @@
+# 密钥，绝对不能提交
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# 生成的索引（体积大且可重建）
+index.json
+eval_report.json
+
+# 放进 data/ 的原始文档（公司内部资料更不该提交）；
+# 示例文件和评估集保留，方便别人 clone 下来直接跑
+data/*
+!data/示例-员工手册.md
+!data/eval_set.json
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+
+# Office 临时锁文件
+~$*
+
+# 个人学习笔记与练习脚本（不属于项目本体）
+一步步操作手册.md
+一步步操作手册*.docx
+学习路线.md
+三周进度规划表.md
+命令速查.md
+配置流程表.md
+PyCharm中文界面对照.md
+try.py
+alpha_对比.py
