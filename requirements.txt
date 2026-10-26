@@ -1,0 +1,18 @@
+# 核心依赖（必装）
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.7
+openai>=1.40
+
+# 可选：解析 PDF 和 Word（只放 txt/md 可以不装）
+pypdf>=4.2
+python-docx>=1.1
+
+# 可选：会话记忆用 Redis（不装会自动降级为内存版）
+redis>=5.0
+
+# 可选：跑单元测试
+pytest>=8.2
+
+# 国内网络慢的话，加清华镜像：
+#   pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
