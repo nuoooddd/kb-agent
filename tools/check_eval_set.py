@@ -84,7 +84,7 @@ def answer_window(text, keys, pad=50):
 def is_overlap_repeat(texts, keys, min_len=60):
     """多块之间是否共享一段很长的、且包含全部关键词的原文。
 
-    chunk 切分时相邻块会重叠（本项目 overlap=100 字），导致同一句话
+    chunk 切分时相邻块会重叠（本项目 overlap=80 字），导致同一句话
     被存进两块。此时两块内容高度重合，答案在哪块都完整。
     """
     if len(texts) < 2:
