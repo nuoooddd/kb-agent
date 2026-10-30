@@ -93,6 +93,38 @@ curl -N -X POST http://127.0.0.1:8000/api/chat/stream \
   -d '{"question":"自我一致性是怎么实现的","session_id":"u1"}'
 ```
 
+## MCP 接入
+
+`tools/mcp_server.py` 是一个手写的 MCP Server（JSON-RPC 2.0 over stdio，零依赖），
+把检索与问答暴露成标准工具，可挂载到 Claude Desktop、Cursor 等任意 MCP 客户端。
+
+```bash
+# 不接客户端，先自测协议流
+python tools/mcp_server.py --selftest
+```
+
+客户端配置（以 Claude Desktop 的 `claude_desktop_config.json` 为例）：
+
+```json
+{
+  "mcpServers": {
+    "kb-agent": {
+      "command": "python",
+      "args": ["D:/path/to/kb-agent/tools/mcp_server.py"]
+    }
+  }
+}
+```
+
+| 工具 | 作用 |
+| --- | --- |
+| `search_knowledge(query, top_k)` | 混合检索，只返回原文片段与出处，不生成答案 |
+| `ask_knowledge_base(query)` | 完整 RAG 问答，答案带 `[1][2]` 引用，无依据时拒答 |
+
+实现要点：`initialize` 回协议版本与能力声明，`tools/list` 报工具的 JSON Schema，
+`tools/call` 分发到具体实现，`notifications/*` 没有 id 所以不返回任何消息；
+日志一律写 stderr，stdout 只允许出现 JSON-RPC 消息，否则客户端解析失败会直接断开。
+
 ## 目录结构
 
 | 文件 | 职责 |
@@ -108,6 +140,8 @@ curl -N -X POST http://127.0.0.1:8000/api/chat/stream \
 | `app/ingest.py` | 离线入库脚本，支持 `--dry-run` / `--no-embed` |
 | `app/main.py` | FastAPI 路由 + 内置调试页面 |
 | `tests/test_core.py` | 单元测试，不装 pytest 也能跑 |
+| `tools/check_eval_set.py` | 评估集关键词唯一性校验，避免判分误判 |
+| `tools/mcp_server.py` | MCP Server（手写 JSON-RPC 2.0），把检索能力暴露给外部 AI 客户端 |
 
 ## 实测结果
 
